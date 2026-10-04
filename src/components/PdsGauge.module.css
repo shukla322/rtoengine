@@ -1,0 +1,104 @@
+.wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.svg {
+  width: 128px;
+  height: 128px;
+  transform: rotate(-90deg);
+}
+
+.track {
+  fill: none;
+  stroke: var(--line-muted);
+  stroke-width: 10;
+}
+
+.progress {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+  /* stroke-dashoffset is driven by a Motion spring (PdsGauge.tsx) — only the
+     zone color-change is left to CSS. */
+  transition: stroke 420ms var(--ease-spring);
+}
+
+.center {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.number {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--ink);
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-muted);
+  letter-spacing: 0.06em;
+}
+
+.zoneBadge {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  text-transform: capitalize;
+}
+
+.zoneBadge[data-zone='green'] { background: rgba(31, 138, 85, 0.12); color: #166342; }
+.zoneBadge[data-zone='yellow'] { background: rgba(254, 156, 0, 0.16); color: #6e4d18; }
+.zoneBadge[data-zone='red'] { background: rgba(194, 59, 59, 0.12); color: #a12a37; }
+
+/* Larger Montserrat pass. */
+
+.number { font-size: 28px; font-weight: 800; color: #5f1c4d; }
+.tag { font-size: 11.5px; letter-spacing: 0; font-weight: 700; color: #7c5470; }
+.zoneBadge { font-size: 13px; font-weight: 800; padding: 5px 13px; }
+
+/* Purple and orange palette pass. */
+
+.number { color: #580b46; }
+.tag { color: #6f4a65; }
+
+/* Dual-tone risk styling. */
+
+.progress { stroke: var(--header); }
+.wrap[data-zone='green'] .number {
+  color: #166342;
+}
+.wrap[data-zone='yellow'] .number {
+  color: #9a6400;
+}
+.wrap[data-zone='red'] .number {
+  color: #a12a37;
+}
+.zoneBadge[data-zone='green'] {
+  background: rgba(31, 138, 85, 0.12);
+  color: #166342;
+  border: 1px solid rgba(31, 138, 85, 0.24);
+}
+.zoneBadge[data-zone='red'] {
+  background: rgba(194, 59, 59, 0.12);
+  color: #a12a37;
+  border: 1px solid rgba(194, 59, 59, 0.24);
+}
+.zoneBadge[data-zone='yellow'] {
+  background: rgba(254, 156, 0, 0.16);
+  color: #6e4d18;
+  border: 1px solid rgba(254, 156, 0, 0.26);
+}

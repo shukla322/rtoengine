@@ -1,0 +1,89 @@
+.wrap {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 14px;
+  font-weight: 400;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: background 260ms var(--ease-spring), color 260ms var(--ease-spring), border-color 260ms var(--ease-spring);
+}
+
+.dayNo {
+  display: none;
+}
+
+.wrap[data-state='active'] .pill {
+  background: var(--highlight);
+  color: var(--ink);
+}
+
+.wrap[data-state='past'] .pill {
+  background: var(--pill-past);
+  color: #ffffff;
+}
+
+.wrap[data-state='future'] .pill {
+  background: transparent;
+  border: 1px solid var(--line-muted);
+  color: var(--ink-muted);
+}
+
+@media (min-width: 720px) {
+  .dayNo {
+    display: inline;
+    opacity: 0.75;
+  }
+}
+
+
+.wrap { margin: 16px 0 12px; }
+.pill { height: 25px; font-size: 10px; font-weight: 700; letter-spacing: .07em; border: 1px solid transparent; }
+.wrap[data-state='active'] .pill { background: #f4e6f0; color: var(--header); border-color: #e7cade; }
+.wrap[data-state='past'] .pill { background: #eeeaf0; color: #756a78; }
+
+/* Expressive rose palette and surface depth. */
+
+.wrap[data-state='active'] .pill { background: var(--brand-gradient); color: white; border-color: transparent; box-shadow: 0 3px 10px #b4288b20; }
+.wrap[data-state='past'] .pill { background: #f3e3ef; color: #93617f; border-color: #e9d0e1; }
+
+/* Larger Montserrat pass. */
+
+.pill { height: 29px; font-size: 11.5px; letter-spacing: 0; font-weight: 800; padding: 0 14px; }
+.wrap[data-state='future'] .pill { background: rgba(255,255,255,.38); border-color: rgba(201, 86, 166, 0.2); color: #8a5a7b; }
+
+/* Purple and orange palette pass. */
+
+.wrap[data-state='active'] .pill { background: #580b46; border-color: rgba(254,156,0,.4); box-shadow: 0 0 0 2px rgba(254,156,0,.16), 0 3px 10px rgba(88,11,70,.18); }
+.wrap[data-state='past'] .pill { color: #6f4a65; border-color: rgba(254,156,0,.2); }
+.wrap[data-state='future'] .pill { border-color: rgba(254,156,0,.24); color: #6f4a65; }
+
+.wrap[data-scroll='true'] .pill {
+  position: relative;
+  background: #eeecee;
+  border-color: #ddd8dc;
+  color: #736b72;
+  box-shadow: none;
+  transition: background-color 500ms cubic-bezier(.22,.61,.36,1), color 500ms ease, border-color 500ms ease;
+}
+.wrap[data-scroll='true'][data-crossed='true'] .pill {
+  background: #fe9c00;
+  border-color: #fe9c00;
+  color: #580b46;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wrap[data-scroll='true'] .pill { transition: none; }
+}
+

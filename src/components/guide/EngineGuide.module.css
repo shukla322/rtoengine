@@ -1,0 +1,217 @@
+/* Documentation page in the app's palette: plum for structure, orange as a small accent,
+   zone colours only as status dots. */
+.page {
+  --ink: #2f2433;
+  --ink-2: #5d5061;
+  --ink-3: #7c6c80;
+  --line: #e9e1e7;
+  --brand: #580b46;
+  --brand-soft: #f7f0f5;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.titleDot { color: #fe9c00; }
+
+/* Same look as the other header buttons. */
+.backButton {
+  font: inherit; font-size: 11px; font-weight: 650; letter-spacing: .01em; white-space: nowrap; cursor: pointer;
+  padding: 8px 12px; border-radius: 9px; color: #ffe9c2;
+  background: linear-gradient(135deg, #2c0724, #580b46 55%, #3a0834);
+  border: 1px solid rgba(254, 156, 0, .4);
+}
+.backButton:hover { color: #fff; border-color: rgba(254, 156, 0, .7); }
+
+.layout { max-width: 1120px; margin: 0 auto; padding: 48px 32px 96px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px; align-items: start; }
+
+/* ---- Contents ----------------------------------------------------------------------- */
+.toc { position: sticky; top: 24px; display: flex; flex-direction: column; border-left: 1px solid var(--line); }
+.tocTitle { font-size: 12px; font-weight: 700; color: var(--ink); padding: 0 0 10px 16px; }
+.toc button {
+  font: inherit; font-size: 13.5px; text-align: left; background: none; border: 0; cursor: pointer;
+  color: var(--ink-3); padding: 6px 0 6px 16px; margin-left: -1px; border-left: 2px solid transparent; display: flex; gap: 10px;
+}
+.toc button span { min-width: 16px; color: #a99aa6; font-variant-numeric: tabular-nums; }
+.toc button:hover { color: var(--ink); }
+.toc button[aria-current] { color: var(--brand); border-left-color: #fe9c00; font-weight: 600; }
+.toc button:focus-visible, .primary:focus-visible, .backButton:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+/* ---- Article ------------------------------------------------------------------------ */
+.article { max-width: 780px; min-width: 0; }
+.intro { padding-bottom: 32px; }
+.kicker { font-size: 13px; font-weight: 600; color: var(--brand); }
+.intro h1 { font-size: 34px; line-height: 1.2; letter-spacing: -.02em; margin: 8px 0 14px; color: #2b1027; }
+.intro p { color: var(--ink-2); margin: 0 0 12px; }
+.meta { font-size: 13.5px; color: var(--ink-3) !important; }
+.primary {
+  font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 8px;
+  padding: 10px 18px; border-radius: 8px; border: 1px solid var(--brand); background: var(--brand); color: #fff;
+}
+.primary:hover { background: #6d0e58; }
+
+.section { border-top: 1px solid var(--line); padding: 36px 0 8px; scroll-margin-top: 16px; }
+.section h2 { font-size: 22px; letter-spacing: -.01em; margin: 0 0 12px; color: #2b1027; display: flex; gap: 10px; }
+.section h2 span { color: #a99aa6; font-weight: 500; }
+.section > p { color: var(--ink-2); margin: 0 0 18px; }
+.section em { font-style: normal; font-weight: 600; color: var(--ink); }
+.muted { font-size: 14px; color: var(--ink-3) !important; margin-top: 16px !important; }
+
+/* ---- Wireframe of the engine screen -------------------------------------------------- */
+.wireframe { display: grid; grid-template-columns: 1fr 1.3fr 0.8fr; gap: 8px; padding: 8px; border: 1px solid var(--line); border-radius: 10px; background: #faf8fa; margin-bottom: 20px; }
+.wireframe div { height: 120px; border: 1px solid var(--line); border-radius: 6px; background: #fff; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; }
+.wireframe b { font-size: 13px; color: var(--ink-3); }
+.wireframe span { font-size: 12.5px; color: var(--ink-2); }
+.wireframe .wireActive { border-color: var(--brand); box-shadow: inset 0 0 0 1px var(--brand); }
+.wireframe .wireActive b { color: var(--brand); }
+
+/* ---- Definition lists --------------------------------------------------------------- */
+.defs { margin: 0; display: grid; grid-template-columns: 230px 1fr; border-top: 1px solid var(--line); }
+.defs dt, .defs dd { padding: 12px 0; border-bottom: 1px solid var(--line); margin: 0; }
+.defs dt { font-weight: 600; font-size: 14px; padding-right: 20px; }
+.defs dd { color: var(--ink-2); font-size: 14px; }
+
+/* ---- Steps -------------------------------------------------------------------------- */
+.steps { list-style: none; padding: 0; margin: 0; display: flex; align-items: stretch; }
+.step { flex: 1 1 0; min-width: 0; border: 1px solid var(--line); border-radius: 8px; padding: 12px 12px 10px; background: #fff; }
+.step strong { display: block; font-size: 13.5px; line-height: 1.35; margin-top: 6px; }
+.step p { margin: 4px 0 0; font-size: 12.5px; line-height: 1.45; color: var(--ink-3); }
+.stepNo { font-size: 12px; font-weight: 700; color: var(--brand); font-variant-numeric: tabular-nums; }
+.connector { flex: 0 0 14px; align-self: center; height: 1px; background: #cdbfca; }
+
+/* ---- Tables ------------------------------------------------------------------------- */
+.tableWrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+.tableWrap + .tableWrap, .steps + .tableWrap { margin-top: 18px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--ink-3); background: #faf8fa; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink-2); }
+tbody tr:last-child td { border-bottom: 0; }
+td strong { color: var(--ink); font-weight: 600; }
+td small { display: block; font-size: 12.5px; color: var(--ink-3); }
+.group td { background: #fcfafc; font-size: 13px; color: var(--ink-3); padding-top: 9px; padding-bottom: 9px; }
+.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+td.num { color: var(--ink); font-weight: 600; }
+td.negative { color: #a33a3a; }
+.zone { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; color: var(--ink); font-weight: 600; }
+.zone i { width: 8px; height: 8px; border-radius: 50%; }
+.zone .green { background: #1f8a55; }
+.zone .yellow { background: #d9a21b; }
+.zone .red { background: #c23b3b; }
+
+/* ---- Note --------------------------------------------------------------------------- */
+.note { margin-top: 18px; border-left: 2px solid var(--brand); background: var(--brand-soft); padding: 12px 16px; border-radius: 0 6px 6px 0; }
+.note strong { font-size: 14px; }
+.note p { margin: 4px 0 0; font-size: 14px; color: var(--ink-2); }
+
+/* ---- Stages ------------------------------------------------------------------------- */
+.phases { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 8px; }
+.phases > div + div { border-left: 1px solid var(--line); }
+.phases h3 { margin: 0; font-size: 13px; font-weight: 600; padding: 10px 12px; border-bottom: 1px solid var(--line); background: #faf8fa; }
+.phases ol { list-style: none; margin: 0; padding: 6px 0; }
+.phases li { font-size: 13px; padding: 5px 12px; color: var(--ink-2); line-height: 1.4; }
+.phases li span { display: inline-block; min-width: 22px; color: #a99aa6; font-variant-numeric: tabular-nums; }
+.phases li em { display: block; margin-left: 22px; font-size: 11.5px; font-weight: 600; color: var(--brand); }
+
+/* ---- Scenarios ---------------------------------------------------------------------- */
+.scenarios { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.scenario { border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; }
+.scenario h3 { margin: 0; font-size: 15px; }
+.scenario > p { margin: 2px 0 10px; font-size: 13.5px; color: var(--ink-3); }
+.scenario ol { margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-2); }
+.scenario li + li { margin-top: 4px; }
+
+/* ---- Tips --------------------------------------------------------------------------- */
+.tips { margin: 0 0 24px; padding-left: 18px; color: var(--ink-2); }
+.tips li + li { margin-top: 8px; }
+.tips strong { color: var(--ink); font-weight: 600; }
+
+/* ---- Responsive --------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
+  .toc { position: static; border-left: 0; border-bottom: 1px solid var(--line); padding-bottom: 12px; flex-direction: row; flex-wrap: wrap; gap: 4px 16px; }
+  .tocTitle { width: 100%; padding: 0 0 4px; }
+  .toc button { padding: 2px 0; border-left: 0; margin: 0; }
+  .toc button[aria-current] { border-left: 0; }
+  .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .phases > div:nth-child(3) { border-left: 0; }
+  .phases > div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 720px) {
+  .steps { flex-direction: column; }
+  .connector { flex: 0 0 12px; width: 1px; height: auto; align-self: flex-start; margin-left: 20px; }
+  .wireframe { grid-template-columns: 1fr; }
+  .wireframe div { height: auto; gap: 4px; }
+  .defs { grid-template-columns: 1fr; }
+  .defs dt { border-bottom: 0; padding-bottom: 0; }
+  .defs dd { padding-top: 2px; }
+  .scenarios { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .page { font-size: 14.5px; }
+  .layout { padding: 24px 16px 64px; }
+  .intro h1 { font-size: 27px; }
+  .section h2 { font-size: 20px; }
+  .phases { grid-template-columns: 1fr; }
+  .phases > div + div { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+/* Boxes carry a light tint of the brand plum. */
+.page { --tint: #fbf5f9; --tint-2: #f5ebf2; --tint-line: #ead8e5; }
+.step, .scenario { background: var(--tint); border-color: var(--tint-line); }
+.wireframe { background: var(--tint-2); border-color: var(--tint-line); }
+.wireframe div { background: var(--tint); border-color: var(--tint-line); }
+.wireframe .wireActive { background: #fff; }
+.tableWrap, .phases { border-color: var(--tint-line); }
+th, .phases h3 { background: var(--tint-2); border-color: var(--tint-line); }
+.group td { background: var(--tint); }
+td, .phases > div + div { border-color: var(--tint-line); }
+.connector { background: #d8bfd0; }
+
+/* ---- Alignment fixes ---------------------------------------------------------------- */
+/* Contents: fixed number column so one- and two-digit items line up. */
+.toc button { gap: 8px; align-items: baseline; }
+.toc .tocNo { flex: 0 0 20px; min-width: 0; text-align: right; }
+@media (max-width: 960px) { .toc .tocNo { flex-basis: auto; } }
+
+/* Stage lists: number column + label column; wrapped labels and "Checkpoint" stay indented. */
+.phases li { display: grid; grid-template-columns: 24px 1fr; align-items: baseline; }
+.phases li span { min-width: 0; }
+.phases li em { margin-left: 0; margin-top: 1px; }
+
+/* Address cell: zone dot, name and street on one aligned left edge. */
+.addressCell { width: 38%; }
+.addressCell .zone { font-weight: 600; white-space: normal; align-items: baseline; }
+.addressCell .zone i { flex-shrink: 0; transform: translateY(-1px); }
+.addressCell small { padding-left: 15px; }
+
+/* Narrow step column in the ladder table. */
+.stepCol { width: 56px; text-align: center; }
+td.stepCol { color: var(--brand); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Table cells share one baseline. */
+td { line-height: 1.5; }
+
+/* Vertical step flow: connector runs through the centre of the step numbers. */
+@media (max-width: 720px) {
+  .connector { margin-left: 16px; }
+  .addressCell { width: 46%; }
+}
+
+/* Contents: only the number is muted; the label follows the item state (plum when current). */
+.toc button span:not(.tocNo) { color: inherit; }
+.toc .tocNo { color: #a99aa6; }
+.toc button[aria-current] .tocNo { color: var(--brand); }
+
+/* Intro facts never break inside an item. */
+.meta span { white-space: nowrap; }
+
+/* Two-column tables stack on phones: the first cell becomes a heading for the second. */
+@media (max-width: 560px) {
+  .stack thead { display: none; }
+  .stack tr { display: block; padding: 12px 14px; border-bottom: 1px solid var(--tint-line); }
+  .stack tbody tr:last-child { border-bottom: 0; }
+  .stack td { display: block; width: auto; padding: 0; border: 0; }
+  .stack td + td { margin-top: 6px; }
+  .stack td:first-child:not(.addressCell) { font-weight: 600; color: var(--ink); }
+}

@@ -1,0 +1,88 @@
+.wrap {
+  text-align: right;
+}
+
+.label {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  border: 1px solid var(--highlight);
+  color: var(--ink);
+  border-radius: 4px;
+  padding: 1px 5px;
+  margin-left: 2px;
+}
+
+.stat {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--ink-muted);
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tagFailed {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--header);
+}
+
+.tagPrevented {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--header);
+}
+
+.wrap[data-variant='failed'] .label {
+  color: var(--header);
+}
+
+.wrap[data-variant='prevented'] .label {
+  color: var(--ink-muted);
+}
+
+.wrap[data-variant='prevented'] .statText {
+  text-decoration: line-through;
+}
+
+@media (max-width: 719px) {
+  .wrap {
+    text-align: left;
+  }
+
+  .stat {
+    justify-content: flex-start;
+  }
+}
+
+/* Larger Montserrat pass. */
+
+.label { font-size: 15px; font-weight: 800; color: #4e2b43; }
+.code { font-size: 12px; font-weight: 800; border-color: rgba(254, 156, 0, 0.55); color: #580b46; background: rgba(255,255,255,.65); }
+.stat { font-size: 14px; color: #76566e; font-weight: 600; }
+.tagFailed,
+.tagPrevented { font-size: 12px; font-weight: 800; }
+
+/* Purple and orange palette pass. */
+
+.code { border-color: rgba(254,156,0,.62); color: #580b46; }
+
+/* Dual-tone leak tags. */
+
+.tagFailed,
+.tagPrevented,
+.wrap[data-variant='failed'] .label,
+.wrap[data-variant='prevented'] .label {
+  color: #580b46;
+}

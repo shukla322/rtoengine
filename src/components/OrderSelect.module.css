@@ -1,0 +1,63 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  padding: 8px 14px 8px 16px;
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--shadow-soft);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.select {
+  border: none;
+  background: transparent;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.select:focus-visible {
+  outline: 2px solid var(--highlight);
+  outline-offset: 2px;
+}
+
+
+.wrap { max-width: 100%; min-width: 0; border-radius: 10px; box-shadow: 0 2px 4px #40203c04; padding: 8px 12px; }
+.select { min-width: 0; max-width: 100%; font-size: 12px; }
+.label { font-size: 9px; flex-shrink: 0; }
+.wrap:focus-within { border-color: #bd7cab; box-shadow: 0 0 0 3px #a8328a0c; }
+
+/* Expressive rose palette and surface depth. */
+
+.wrap { background: #ffffffd9; border-color: #dfb8d3; box-shadow: 0 3px 10px #8d286508; }
+.label { color: #a1688f; }
+.select { color: #7c2b63; }
+.wrap:hover { border-color: #c27eae; }
+
+/* Larger Montserrat pass. */
+
+.wrap { background: rgba(255, 255, 255, 0.68); border-color: rgba(254, 156, 0, 0.34); box-shadow: 0 10px 28px -22px rgba(88, 11, 70, 0.44), inset 0 1px 0 #fff; padding: 9px 13px; }
+.wrap:hover { background: rgba(255, 255, 255, 0.82); box-shadow: var(--shadow-glass-hover); transform: translateY(-1px); }
+.label { font-size: 10.5px; letter-spacing: 0; font-weight: 800; color: #8e4374; }
+.select { font-size: 13.5px; font-weight: 800; color: #6f1c58; }
+
+/* Purple and orange palette pass. */
+
+.wrap { border-color: rgba(254,156,0,.34); }
+.wrap:hover { border-color: #fe9c00; }
+.label { color: #7a4f0b; }
+.select { color: #580b46; }
+
